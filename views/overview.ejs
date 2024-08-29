@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Transaction Overview</title>
+</head>
+
+<body>
+
+    <!-- Navbar component -->
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://bharatintern.live/static/logo-d7abe237292b840869fa4f33f0e74976.png" alt="Logo"
+                    class="w-24">
+                <span class="text-medium font-semibold text-gray-700">Internship Assessment</span>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- WebApp components -->
+    <div class="mt-14 mx-8">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div class="flex justify-center align-center mb-16">
+                <!-- <h1
+                    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-gray-400">
+                    Add <span class="text-blue-600 dark:text-blue-500"> Transaction </span> data.</h1> -->
+
+                <h1 class="text-2xl md:text-4xl text-slate-600 font-sans font-bold inline-block">
+                    Overview <span
+                        class="bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-500 py-1 px-2 text-white">Transaction!</span>
+                </h1>
+
+            </div>
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead
+                    class="text-xs text-gray-700 uppercase bg-gradient-to-r from-cyan-500 to-blue-500 dark:bg-blue-600 dark:text-white">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Amount
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <!-- <th scope="col" class="px-6 py-3">
+                            Temp_name
+                        </th> -->
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <% transactions.forEach(transaction=> { %>
+                        <tr class="bg-white border-b dark:bg-white dark:border-slate-400 text-zinc-600 font-[600]">
+
+                            <td class="px-6 py-4">
+                                <%= transaction.description %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <%= transaction.amount %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <%= transaction.type %>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="/edit-transaction/<%= transaction._id %>"
+                                    class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline gap-1">
+                                    Edit
+                                    <ion-icon name="duplicate-outline" class="w-4 h-4 me-2"></ion-icon>
+                                </a>/
+                                <a href="/delete-transaction/<%= transaction._id %>"
+                                    class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline gap-1">
+                                    Delete
+                                    <ion-icon name="trash-outline" class="w-4 h-4 me-2"></ion-icon>
+                                </a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <div class="mt-4 mx-8">
+
+        <!-- <button type="button"
+            class="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2">
+            <ion-icon name="duplicate-outline" class="w-4 h-4 me-2"></ion-icon>
+            <a href="/add-transaction">
+                Add New Transaction
+            </a>
+        </button> -->
+
+        <button type="button"
+            class="text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-blue-800 font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gradient-to-r from-sky-500 to-indigo-500 dark:hover:bg-gradient-to-r from-sky-500 to-indigo-500 text-center inline-flex items-center">
+            <ion-icon name="duplicate-outline" class="w-4 h-4 me-2"></ion-icon>
+            <a href="/">
+                Go to Home
+            </a>
+        </button>
+
+        <button type="button"
+            class="text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-blue-800 font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gradient-to-r from-sky-500 to-indigo-500 dark:hover:bg-gradient-to-r from-sky-500 to-indigo-500 text-center inline-flex items-center">
+            <ion-icon name="duplicate-outline" class="w-4 h-4 me-2"></ion-icon>
+            <a href="/add-transaction">
+                Add New Transaction
+            </a>
+        </button>
+    </div>
+
+    <!-- Ionicons script -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

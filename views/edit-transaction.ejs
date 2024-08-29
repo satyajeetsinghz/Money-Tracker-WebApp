@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Edit Transaction</title>
+</head>
+
+<body>
+
+    <!-- Navbar component -->
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://bharatintern.live/static/logo-d7abe237292b840869fa4f33f0e74976.png" alt="Logo"
+                    class="w-24">
+                <span class="text-medium font-semibold text-gray-700">Internship Assessment</span>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="mt-16 mx-6">
+
+        <form action="/edit-transaction/<%= transaction._id %>" method="post">
+
+            <div class="bg-gray-100 p-6 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg space-y-4">
+
+
+                <div class="flex justify-center align-center mb-16">
+
+                    <h1 class="text-2xl md:text-4xl text-slate-600 font-sans font-bold inline-block">
+                        Edit <span
+                            class="bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-500 py-1 px-2 text-white">Transaction!</span>
+                    </h1>
+
+                </div>
+
+
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                    <input type="text" id="description" name="description" value="<%= transaction.description %>"
+                        required
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+
+                <!-- Enter Amount -->
+                <div>
+                    <label for="amount" class="block text-sm font-medium text-gray-700">Enter Amount</label>
+                    <input type="number" id="amount" name="amount" value="<%= transaction.amount %>" required
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+
+                <!-- Select Option -->
+                <div>
+                    <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
+                    <select id="type" name="type" required
+                        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="income" <%=transaction.type==='income' ? 'selected' : '' %>>Income</option>
+                        <option value="expense" <%=transaction.type==='expense' ? 'selected' : '' %>>Expense
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit"
+                        class="text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-blue-800 font-semibold rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 text-center inline-flex items-center gap-2">
+                        Save Changes
+                        <ion-icon name="arrow-forward-circle"></ion-icon>
+                    </button>
+
+                    <button type="submit"
+                        class="text-white bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-blue-800 font-semibold rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 text-center inline-flex items-center gap-2">
+                        <a href="/overview"
+                            class="dark:hover:bg-gradient-to-r from-sky-500 to-indigo-500 hover:bg-blue-800 disabled:pointer-events-none">Back
+                            to Overview</a>
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Ionicons script -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
